@@ -51,11 +51,22 @@ SPI_DEVICE = 0
 
 A_pin = 5 
 B_pin = 6 
+L_pin = 27 
+R_pin = 23 
+C_pin = 4 
+U_pin = 17 
+D_pin = 22 
+
 
 GPIO.setmode(GPIO.BCM) 
 
 GPIO.setup(A_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
 GPIO.setup(B_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
+GPIO.setup(L_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
+GPIO.setup(R_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
+GPIO.setup(C_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
+GPIO.setup(U_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
+GPIO.setup(D_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
 
 
 # Beaglebone Black pin configuration:
@@ -97,7 +108,7 @@ image = Image.new('1', (width, height))
 
 # Alternatively load a TTF font.  Make sure the .ttf font file is in the same directory as this python script!
 # Some nice fonts to try: http://www.dafont.com/bitmap.php
-font = ImageFont.truetype('Hack-Regular.ttf', 20)
+font = ImageFont.truetype('Hack-Regular.ttf', 22)
 
 # Create drawing object.
 draw = ImageDraw.Draw(image)
