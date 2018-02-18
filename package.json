@@ -1,0 +1,28 @@
+{
+  "name": "pi_oled_radio",
+  "version": "1.0.0",
+  "description": "Raspberry Pi Internet Radio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasfl/pi_oled_radio.git"
+  },
+  "keywords": [
+    "raspberry",
+    "pi",
+    "internet",
+    "radio"
+  ],
+  "author": "Thomas Flemming",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thomasfl/pi_oled_radio/issues"
+  },
+  "homepage": "https://github.com/thomasfl/pi_oled_radio#readme",
+  "dependencies": {
+    "onoff": "^1.2.0"
+  }
+}
