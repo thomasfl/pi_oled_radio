@@ -53,5 +53,14 @@ Follow this guide on how to [upgrade NodeJS](http://thisdavej.com/upgrading-to-m
 
 The node script will start two processes in the backround; the audio
 streaming process and the animated scrolling display text process.
-For this use nodejs really shines.
+
+# Setting up the Raspberry to run the radio on startup
+
+Make sure the Raspberry does not start x on boot. Then add this line to
+the bottom of the file ~/.bashrc:
+
+```
+/usr/bin/node /home/pi/scripts/pi_oled_radio/index.js
+```
+
 
