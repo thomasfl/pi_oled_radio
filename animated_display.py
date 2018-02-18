@@ -24,6 +24,8 @@
 import math
 import time
 
+import RPi.GPIO as GPIO
+
 import Adafruit_GPIO.SPI as SPI
 import Adafruit_SSD1306
 
@@ -46,6 +48,15 @@ RST = 24
 DC = 23
 SPI_PORT = 0
 SPI_DEVICE = 0
+
+A_pin = 5 
+B_pin = 6 
+
+GPIO.setmode(GPIO.BCM) 
+
+GPIO.setup(A_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
+GPIO.setup(B_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
+
 
 # Beaglebone Black pin configuration:
 # RST = 'P9_12'
@@ -92,7 +103,7 @@ font = ImageFont.truetype('Hack-Regular.ttf', 20)
 draw = ImageDraw.Draw(image)
 
 # Define text and get total width.
-text = str1.decode('utf8')
+text = str2.decode('utf8')
 maxwidth, unused = draw.textsize(text, font=font)
 
 # Set animation and sine wave parameters.
@@ -102,13 +113,13 @@ velocity = -4 ## -2
 startpos = width
 
 # Animate text moving in sine wave.
-print('Press Ctrl-C to quit.')
+## print('Press Ctrl-C to quit.')
 pos = startpos
 while True:
     # Clear image buffer by drawing a black filled box.
     draw.rectangle((0,0,width,height), outline=0, fill=0)
 
-    draw.text((2, 2), str2.decode('utf8'), font=font, fill=255)
+    draw.text((2, 2), str1.decode('utf8'), font=font, fill=255)
     
     # Enumerate characters and draw them offset vertically based on a sine wave.
     x = pos
@@ -128,6 +139,11 @@ while True:
         # Increment x position based on chacacter width.
         char_width, char_height = draw.textsize(c, font=font)
         x += char_width
+        # if GPIO.input(A_pin): # button is released
+        ## print "a button"
+        # if GPIO.input(B_pin): # button is released
+        ## print "b button"
+        
     # Draw the image buffer.
     disp.image(image)
     disp.display()
