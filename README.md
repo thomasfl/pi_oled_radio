@@ -42,17 +42,34 @@ the internet radio station and display info from the radio station
 while scrolling sideways:
 
 ```
+$ git clone https://github.com/thomasfl/pi_oled_radio
+$ cd pi_oled_radio
 $ python ./animated_display.py "BBC Radio" "Latest news bla bla"
 ```
 
-# Update to latest version of node
+# Update to latest version of node for Raspberry Pi Zero
 
-Follow this guide on how to [upgrade NodeJS](http://thisdavej.com/upgrading-to-more-recent-versions-of-node-js-on-the-raspberry-pi/).
+Note that the Raspberry Pi Zero won't be able to run the same version of node as the Raspeberry Pi 3. Instead of running apt-get install we need to manually download a version of node compiled for the older ARMv6 chipset used by the Zero.
+
+```
+$ sudo apt-get remove --purge npm node nodejs
+$ cd /tmp
+$ wget http://nodejs.org/dist/latest-v9.x/node-v9.5.0-linux-armv6l.tar.gz
+$ cd /usr/local
+$ sudo tar xzvf /tmp/node-v9.5.0-linux-armv6l.tar.gz --strip=1
+$ node -v
+```
 
 # Running node script to read buttons, control streaming and display
 
 The node script will start two processes in the backround; the audio
 streaming process and the animated scrolling display text process.
+
+```
+$ cd pi_oled_radio
+$ npm install
+$ node index.js
+```
 
 # Setting up the Raspberry to run the radio on startup
 
@@ -63,4 +80,9 @@ the bottom of the file ~/.bashrc:
 /usr/bin/node /home/pi/scripts/pi_oled_radio/index.js
 ```
 
+# Using the Internet Radio
+
+Use the two "A" and "B" buttons to browse through radio stations.
+Playing should start after a short while. Use the "Center" button inside
+the joystick to pause streaming and display the ip address.
 
