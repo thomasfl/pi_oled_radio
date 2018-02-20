@@ -31,7 +31,6 @@ From the command line you should be able to listen to the radio:
 $ mplayer http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk_backup
 ```
 
-
 # Install python libraries to use OLED screen
 
 Follow the official guide for how to configure you Raspberry Pi to be able to use the [OLED display](https://learn.adafruit.com/adafruit-128x64-oled-bonnet-for-raspberry-pi/overview)
@@ -66,10 +65,16 @@ The node script will start two processes in the backround; the audio
 streaming process and the animated scrolling display text process.
 
 ```
+$ cd
+$ mkdir scripts
+$ cd scripts
+$ git clone https://github.com/thomasfl/pi_oled_radio
 $ cd pi_oled_radio
 $ npm install
 $ node index.js
 ```
+
+Paths have been hardcoded so these scripts has to be placed in the folder /home/pi/scripts/pi_oled_radio to run.
 
 # Setting up the Raspberry to run the radio on startup
 

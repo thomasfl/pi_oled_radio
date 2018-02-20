@@ -108,7 +108,7 @@ image = Image.new('1', (width, height))
 
 # Alternatively load a TTF font.  Make sure the .ttf font file is in the same directory as this python script!
 # Some nice fonts to try: http://www.dafont.com/bitmap.php
-font = ImageFont.truetype('Hack-Regular.ttf', 22)
+font = ImageFont.truetype('/home/pi/scripts/pi_oled_radio/Hack-Regular.ttf', 22)
 
 # Create drawing object.
 draw = ImageDraw.Draw(image)
